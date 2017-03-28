@@ -13,11 +13,7 @@
 # limitations under the License.
 
 # Add stock nougat bootanimation based on device
-ifneq ($(filter kenzo,$(TARGET_PRODUCT)),)
-    PRODUCT_COPY_FILES += \
-        vendor/pure/prebuilt/bootanimation/1080.zip:system/media/bootanimation.zip
-endif
-ifneq ($(filter hydrogen,$(TARGET_PRODUCT)),)
+ifneq ($(filter x3,$(TARGET_PRODUCT)),)
     PRODUCT_COPY_FILES += \
         vendor/pure/prebuilt/bootanimation/1080.zip:system/media/bootanimation.zip
 endif

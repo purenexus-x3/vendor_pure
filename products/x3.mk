@@ -12,13 +12,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-#PureNexus versioning
-ifndef PURE_BUILD_TYPE
-    PURE_BUILD_TYPE := THUGLY
-endif
+# Include pure telephony configuration
+include vendor/pure/configs/pure_phone.mk
 
-PURE_VERSION := $(PLATFORM_VERSION)-$(shell date +%Y%m%d)-$(PURE_BUILD_TYPE)
+# Inherit AOSP device configuration for shamu.
+$(call inherit-product, device/letv/x3/aosp_x3.mk)
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.pure.version=$(PURE_VERSION)
+# Inherit arm phone gapps
+$(call inherit-product-if-exists, vendor/gapps/arm64-phone-gapps.mk)
 
+# Override AOSP build properties
+PRODUCT_NAME := x3
+PRODUCT_BRAND := Letv
+PRODUCT_DEVICE := x3
+PRODUCT_MODEL := Le 1S
+PRODUCT_MANUFACTURER := Letv
+
+
+PRODUCT_GMS_CLIENTID_BASE := android-letv

@@ -1,2 +1,1 @@
-add_lunch_combo kenzo-userdebug
-add_lunch_combo hydrogen-userdebug
+add_lunch_combo x3-userdebug
